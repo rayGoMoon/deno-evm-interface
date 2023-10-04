@@ -27,7 +27,7 @@ export const POLYGON: Chain = {
 
 export const MUMBAI: Chain = {
   chainId: 80001,
-  name: "polygon",
+  name: "mumbai",
   rpc: "https://rpc-mumbai.matic.today",
   blockExplorer: "https://mumbai.polygonscan.com",
   type: "testnet",
