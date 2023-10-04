@@ -1,0 +1,50 @@
+name: Deno Semantic Version Build
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: "0"
+
+      - name: Setup Deno
+        uses: denoland/setup-deno@v1
+        with:
+          deno-version: v1.x
+
+      - name: Cache Deno dependencies
+        uses: actions/cache@v3
+        with:
+          path: |
+            ~/.deno
+            ~/.cache/deno
+          key: ${{ hashFiles('deno.lock') }}
+
+      - name: Deno Lint Check
+        run: deno lint
+
+      - name: Deno Test
+        run: deno test --allow-all --coverage=cov/
+
+      - name: Deno Test Coverage
+        run: deno coverage --lcov cov/ > cov.lcov
+
+      - name: Git Semantic Version
+        id: semantic-version
+        uses: PaulHatch/semantic-version@v5.0.3
+        with:
+          bump_each_commit: true
+
+      - name: Create a Release
+        uses: elgohr/Github-Release-Action@v4
+        env:
+          GITHUB_TOKEN: ${{ secrets.RELEASE_TOKEN }}
+        with:
+          title: ${{ steps.semantic-version.outputs.version_tag }}
