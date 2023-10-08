@@ -7,7 +7,6 @@ export const ETHEREUM: Chain = {
   rpc: "https://rpc.flashbots.net/",
   blockExplorer: "https://etherscan.io/",
   type: "mainnet",
-  infuraRpcBaseUrl: "https://mainnet.infura.io/v3/",
 };
 
 export const SPEOLIA: Chain = {
@@ -16,7 +15,6 @@ export const SPEOLIA: Chain = {
   rpc: "https://rpc.sepolia.org/",
   blockExplorer: "https://sepolia.etherscan.io/",
   type: "testnet",
-  infuraRpcBaseUrl: "https://sepolia.infura.io/v3/",
 };
 
 export const POLYGON: Chain = {
@@ -25,7 +23,6 @@ export const POLYGON: Chain = {
   rpc: "https://polygon-rpc.com/",
   blockExplorer: "https://polygonscan.com/",
   type: "mainnet",
-  infuraRpcBaseUrl: "https://polygon-mainnet.infura.io/v3/",
 };
 
 export const MUMBAI: Chain = {
@@ -34,5 +31,4 @@ export const MUMBAI: Chain = {
   rpc: "https://rpc-mumbai.matic.today/",
   blockExplorer: "https://mumbai.polygonscan.com/",
   type: "testnet",
-  infuraRpcBaseUrl: "https://polygon-mumbai.infura.io/v3/",
 };

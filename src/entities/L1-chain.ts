@@ -15,7 +15,6 @@ export const L2Chain = object({
   type: L1ChainType,
   rpc: string(),
   blockExplorer: string(),
-  infuraRpcBaseUrl: string(),
 });
 
 export type L2Chain = Infer<typeof L2Chain>;
